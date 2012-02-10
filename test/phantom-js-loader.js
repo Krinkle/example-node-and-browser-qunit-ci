@@ -6,7 +6,9 @@ page.onConsoleMessage = function(msg) {
     console.log(msg);
     if (/^Tests completed in/.test(msg)) {
         phantom.exit(page.evaluate(function () {
-            if (QUnit && QUnit.config && QUnit.config.stats) {
+            console.log(window);
+            console.log(window.QUnit);
+            if (window.QUnit && QUnit.config && QUnit.config.stats) {
                 return QUnit.config.stats.bad || 0;
             }
             return 1;
