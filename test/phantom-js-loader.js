@@ -1,6 +1,6 @@
 var fs = require('fs'),
 	system = require('system'),
-    page = new WebPage(),
+	page = require('webpage').create(),
 	file = fs.absolute((system.args.length > 1 && system.args[1]) || 'test/index.html');
 
 
