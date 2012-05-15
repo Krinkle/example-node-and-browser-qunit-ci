@@ -1,6 +1,8 @@
 var fs = require('fs'),
-    page = new WebPage(),
-    file = fs.absolute('test/index.html');
+	system = require('system'),
+	page = require('webpage').create(),
+	file = fs.absolute((system.args.length > 1 && system.args[1]) || 'test/index.html');
+
 
 page.onConsoleMessage = function(msg) {
     console.log(msg);
