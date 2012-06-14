@@ -37,7 +37,7 @@ check this function works every time you update your code right? You should
 automate this!
 
 ```javascript
-test('doubleNumber() returns twice the value of the first argument', function ()) {
+test('doubleNumber() returns twice the value of the first argument', function () {
    
     equal(doubleNumber(1), 2);
     equal(doubleNumber(2), 4);

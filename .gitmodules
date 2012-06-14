@@ -1,6 +1,6 @@
-[submodule "test/qunit"]
-	path = test/qunit
+[submodule "libs/qunit"]
+	path = libs/qunit
 	url = git://github.com/jquery/qunit.git
-[submodule "test/qunit-logging"]
-	path = test/qunit-logging
+[submodule "libs/qunit-logging"]
+	path = libs/qunit-logging
 	url = git://github.com/keithamus/qunit-logging

@@ -1,21 +1,22 @@
-/*
-    When writing tests we need to use the properly named QUnit.module because
-    node already has "module" defined. Because we're doing this, let's stick to
-    the convention for tests also
-*/
-
-
-QUnit.module('mylib');
+QUnit.module('main');
 
 QUnit.test('mylib returns true', function () {
-    
-    equal(mylib(), true, 'mylib() returns true');
 
+    strictEqual(mylib(), true, 'mylib() returns true');
 });
 
-QUnit.test('a failing test', function () {
-	expect(2);
-	equal('This string is not the same', 'as this one');
+QUnit.test('a few more tests', function () {
+	// Be sure to keep this number correct if you uncomment, add or remove
+	// assertions below. You could also remove it alltogether as expect() is optional.
+	QUnit.expect(2);
 
-	equal({ one : 1, two: 3 }, { one: 1, two: 2 }, 'this one\'s gonna fail');
+	// example of failing test
+	//assert.equal('This string is not the same', 'as this one', 'different strings are.. different, this fails');
+
+	equal('Foo', 'Foo', 'Similar strings are.. equal');
+
+	// example of failing test
+	//assert.equal({ one : 1, two: 2 }, { one: 1, two: 2 }, 'objects are compared by reference, this fails');
+
+	deepEqual({ one : 1, two: 2 }, { one: 1, two: 2 }, 'deepEqual compares values');
 });

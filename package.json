@@ -1,25 +1,31 @@
 {
-   "name": "Mylib",
-   "version": "0.0.1",
-   "description": "",
-   "homepage": "",
-   "keywords": [ ],
-   "maintainers": [
-        {
-            "name": "Me",
-            "email": "me@me.com",
-            "web": "http://me.com" 
-        } 
-   ],
-   "licenses": [ { "type": "MIT", "url": "http://mit-license.org/" } ],
-   "repositories": [ { "type": "git", "url": "https://github.com/me/me" } ],
-   "main": "./tempus.js",
-
-
-   "devDependencies": { 
- 		"qunit": "0.2.x"
-   },
-   "scripts": {
-   		"test": "node test/index.js"
-   }
+	"name": "Mylib",
+	"version": "0.0.1",
+	"description": "My First Library.",
+	"keywords": [
+		"library"
+	],
+	"homepage": "http://johndoe.example.org/mylib",
+	"bugs": "https://github.com/JohnDoe/node-mylib/issues",
+	"author": {
+		"name": "John Doe",
+		"web": "https://github.com/JohnDoe"
+	},
+	"main": "./src/mylib.js",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/JohnDoe/node-mylib.git"
+	},
+	"scripts": {
+			"test": "node test/node-index.js"
+	},
+	"dependencies": {
+	},
+	"devDependencies": {
+		"qunit": "~0.5.1"
+	},
+	"licenses": [{
+		"type": "MIT",
+		"url": "http://mit-license.org/"
+	}]
 }

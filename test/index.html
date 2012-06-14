@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
-    <title>QUnit Test Suite</title>
-    <link rel="stylesheet" href="qunit/qunit/qunit.css" type="text/css" media="screen">
-    <script type="text/javascript" src="qunit/qunit/qunit.js"></script>	
-    <script type="text/javascript" src="qunit-logging/qunit-logging.js"></script>
-    <script type="text/javascript">
-    	QUnit.config.reorder = false;
-    </script>
+	<meta charset="UTF-8">
+	<title>MyLib Test Suite</title>
 
-    <!-- Include your CODE to test here -->
-    <script type="text/javascript" src="../mylib.js"></script>
+	<!-- Include the test framework -->
+	<link rel="stylesheet" href="../libs/qunit/qunit/qunit.css">
+	<script src="../libs/qunit/qunit/qunit.js"></script>
+	<script src="../libs/qunit-logging/qunit-logging.js"></script>
+	<script>
+		QUnit.config.reorder = false;
+	</script>
 
-    <!-- Include your TESTS here -->
-    <script type="text/javascript" src="mylib.test.js"></script>
+	<!-- Include the source code -->
+	<script src="../src/mylib.js"></script>
 
+	<!-- Include the test suite(s) -->
+	<script src="mylib.test.js"></script>
 </head>
 <body>
-    <h1 id="qunit-header">QUnit Test Suite</h1>
-    <h2 id="qunit-banner"></h2>
-    <div id="qunit-testrunner-toolbar"></div>
-    <h2 id="qunit-userAgent"></h2>
-    <ol id="qunit-tests"></ol>
-    <div id="qunit-fixture">test markup</div>
+	<div id="qunit"></div>
+	<div id="qunit-fixture">
+		test markup
+	</div>
 </body>
 </html>
