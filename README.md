@@ -1,4 +1,5 @@
-# Travis CI with Node JS and Browser (in Phantom JS), using QUnit
+# Travis CI with Node JS and Browser (in Phantom JS), using QUnit [![Build Status](https://secure.travis-ci.org/Krinkle/travis-ci-node-and-browser-qunit.png)](http://travis-ci.org/Krinkle/travis-ci-node-and-browser-qunit)
+
 
 This project is a little demonstration of how to get a javascript library using
 continuous integration by running QUnit tests inside a fake browser (phantomjs) 
