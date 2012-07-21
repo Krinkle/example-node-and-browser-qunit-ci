@@ -13,7 +13,7 @@ qunit.run({
     tests: [
 
 		// Include the test suite(s)
-		'mylib.test.js'
+		'./test/mylib.test.js'
 
-    ].map(function (v) { return './test/' + v; })
+    ]
 });
