@@ -1,3 +1,5 @@
+/*global phantom, window */
+
 var fs = require('fs'),
 	system = require('system'),
 	page = require('webpage').create(),

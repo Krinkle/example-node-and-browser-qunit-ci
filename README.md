@@ -1,102 +1,66 @@
-# Travis CI with Node JS and Browser (in Phantom JS), using QUnit [![Build Status](https://secure.travis-ci.org/Krinkle/travis-ci-node-and-browser-qunit.png)](http://travis-ci.org/Krinkle/travis-ci-node-and-browser-qunit)
+[![Build Status](https://secure.travis-ci.org/Krinkle/travis-ci-node-and-browser-qunit.png)](http://travis-ci.org/Krinkle/travis-ci-node-and-browser-qunit)
 
+# Run QUnit tests in NodeJS + WebKit using Travis CI!
 
 This project is a little demonstration of how to get a javascript library using
 continuous integration by running QUnit tests inside a fake browser (phantomjs) 
-and also inside nodejs.
+and/or inside nodejs (depending on whether your library is intended for usage
+in either or both platforms).
 
-Frontend developers seem to have very little exposure to TDD and CI, this is an 
-attempt to fix that.
+Frontend developers seem to have very little exposure to TDD and CI.
 
-# What is TDD and CI, why should I do these?
+# What is TDD and CI?
 
-The typical process when you write some code for a client or project, is to 
+The typical process when you write some code for a client or project may be to
 write the code, then test to make sure it works, then you push it to your VCS 
-(like git), and when that is done you can package it all up and upload it to 
+(e.g. git), and when that is done you can package it all up and upload it to
 where it needs to go (as in, live on the server). So it looks a little like:
 
     coding -> testing -> pushing -> packaging -> deploying
 
-Thing is, you can automate pretty much all of these steps, with TDD and CI.
+Thing is, you can automate pretty much all of these steps, with TDD and CI:
 
+* [TDD](https://en.wikipedia.org/wiki/Test-driven_development)
+* [CI](https://en.wikipedia.org/wiki/Continuous_integration)
 
-### TDD - Test Driven Development
+# Get started
 
-Normally, when you write some code, lets say a javascript library, you'll write 
-some code, lets say:
-
-```javascript
-function doubleNumber(a) {
-    return a * 2;
-}
+Clone or fork this repository and be sure to run the following two commands to
+install the dependencies:
+```bash
+git submodule update --init
+npm install
 ```
 
-When you've finished writing your function, you need to make sure it works, 
-right? So you load up your file in your browser, and run the function, 
-`doubleNumber(3)` and it comes back `6`. Great! But that is a load of effort to 
-check this function works every time you update your code right? You should 
-automate this!
+# Tell me more
 
-```javascript
-test('doubleNumber() returns twice the value of the first argument', function () {
-   
-    equal(doubleNumber(1), 2);
-    equal(doubleNumber(2), 4);
-    equal(doubleNumber(3), 6);
-    equal(doubleNumber(4), 8);
+There is an awesome project called [Travis CI](http://travis-ci.org/) which is
+a cloud-based CI, for open source projects. It is built for GitHub so you can
+make a project in github, and hook it up to Travis. Then, whenver you push,
+Travis CI will automatically run the tests and report back on any problems.
 
-});
+This boilerplate repository is also hooked up to Travis ([view build history](http://travis-ci.org/#!/Krinkle/travis-ci-node-and-browser-qunit/builds)).
+
+Just get into it, have a look at it all, you'll get the hang of it, it's easy!
+If you've got any problems, feel free to ask on Twitter or [create an issue](https://github.com/keithamus/travis-ci-node-and-browser-qunit/issues).
+
+* [@keithamus](https://github.com/keithamus) ([Twitter](https://twitter.com/keithamus))
+* [@Krinkle](https://github.com/Krinkle) ([Twitter](https://twitter.com/TimoTijhof))
+
+By default Travis-CI will execute the `npm test` command, which in this example
+repository runs `node test/node-index.js`. In addition to running it in node (which
+does not simulate a browser), it will also run in phantomjs (from the
+`before_script` hook in `.travis.yml`) which is a headless WebKit browser.
+
+Depending on the kind of project you have you may want to keep only one of these.
+For example, if your application uses HTML elements and such then you'll want
+to only keep the phantomjs test (and thus remove the `test/node-test.js` file
+and the `scripts.test` property in `package.json`). Likewise, if your app is
+written specifically for NodeJS (e.g. uses `require('fs')` and what not), then
+you'll want to delete `test/phantomjs-index.js` and remove these 3 lines from
+the `before_script` hook in the `.travis.yml` file:
 ```
-
-Above is a working example of a QUnit test that will test your doubleNumber 
-function to make sure it is working. You can then run this code in your browser, 
-and it'll tell you if it passes or fails. Awesome!
-
-Proper TDD means you write the tests first, this way you can see them fail (so 
-you can test your tests), then make them pass. It makes development a lot easier 
-because it breaks it down, and makes you think about the way you're writing code.
-TDD is awesome because:
-
- - It gives you boundaries to work to, making your flow better
- - It is a great way to "prove" your code works. Your code will be more stable for it.
- - It can be a great way to organise yourself, tests become "todos"
- - You are probably manually testing right now, so get your computer to do it all for you!
-
-### CI - Continuous Integration
-
-Problem now is, it's frigging boring to load up this test page all the time, and 
-watch it pass. Sometimes you forget and you deploy code which has broken tests. 
-Well, this is where Continuous Integration steps in.
-
-CI is the middle man between when you run `git push` and when your website is 
-deployed. A well-setup CI system will hook into your VCS (like git) and when it 
-notices you've updated, it'll run all of the tests for you, and when (and only 
-when) those tests pass, it'll deploy your project for you. This means that the 
-process we described earlier:
-
-    coding -> testing -> pushing -> packaging -> deploying
-
-is now:
-
-    coding -> pushing
-
-Your CI system has taken care of the rest for you.
-
-# Where can I get my hands on this CI system then?
-
-There is an awesome project called [Travis CI](http://travis-ci.org/) which is 
-a cloud-based CI, for open source projects. It is built for github so you can 
-make a project in github, and hook it up to travis ci and every time you push, 
-travis ci will run your tests for you. 
-
-This project is for that. The .travis.yml is set up so that the tests in 
-test/index.html will be loaded up and run in a webkit-based browser, and also it
-will run the same code and tests in NodeJS. This repository is hooked up to 
-travis, and you can see it (failing) [here](http://travis-ci.org/#!/keithamus/travis-ci-node-and-browser-qunit/builds).
-
-The build is currently failing because it has a test which fails inside 
-mylib.test.js, for illustration purposes. [Build #14](http://travis-ci.org/#!/keithamus/travis-ci-node-and-browser-qunit/builds/659066)
-did pass, because it didn't have these failing tests.
-
-Just get stuck in, have a look at it all, you'll get the hang of it, it's easy! 
-If you've got any problems, tweet me [@keithamus](http://twitter.com/keithamus) 
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - "phantomjs test/phantomjs-index.js"
+```

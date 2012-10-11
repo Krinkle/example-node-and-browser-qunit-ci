@@ -5,13 +5,13 @@
 	"keywords": [
 		"library"
 	],
-	"homepage": "http://johndoe.example.org/mylib",
+	"homepage": "http://example.org/mylib",
 	"bugs": "https://github.com/JohnDoe/node-mylib/issues",
 	"author": {
 		"name": "John Doe",
 		"web": "https://github.com/JohnDoe"
 	},
-	"main": "./src/mylib.js",
+	"main": "./src/MyLib.js",
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/JohnDoe/node-mylib.git"
@@ -22,7 +22,7 @@
 	"dependencies": {
 	},
 	"devDependencies": {
-		"qunit": "~0.5.1"
+		"qunit": "~0.5.9"
 	},
 	"licenses": [{
 		"type": "MIT",

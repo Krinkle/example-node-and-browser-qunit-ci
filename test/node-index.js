@@ -4,16 +4,16 @@ qunit.run({
     code: {
 
 		// Include the source code
-		path: './src/mylib.js',
+		path: './src/MyLib.js',
 
 		// What global var should it introduce for your tests?
-		namespace: 'mylib'
+		namespace: 'MyLib'
 
     },
     tests: [
 
 		// Include the test suite(s)
-		'./test/mylib.test.js'
+		'./test/MyLib.test.js'
 
     ]
 });
