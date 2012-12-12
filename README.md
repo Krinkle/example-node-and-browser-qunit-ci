@@ -2,26 +2,11 @@
 
 # Run QUnit tests in NodeJS + WebKit using Travis CI!
 
-This project is a little demonstration of how to get a javascript library using
-continuous integration by running QUnit tests inside a fake browser (phantomjs) 
-and/or inside nodejs (depending on whether your library is intended for usage
-in either or both platforms).
+This project is a little demonstration of how to approach continuous integration
+by running QUnit tests inside a headless browser (phantomjs) and/or inside nodejs
+(depending on whether your library is intended for usage in either or both platforms).
 
-Frontend developers seem to have very little exposure to TDD and CI.
-
-# What is TDD and CI?
-
-The typical process when you write some code for a client or project may be to
-write the code, then test to make sure it works, then you push it to your VCS 
-(e.g. git), and when that is done you can package it all up and upload it to
-where it needs to go (as in, live on the server). So it looks a little like:
-
-    coding -> testing -> pushing -> packaging -> deploying
-
-Thing is, you can automate pretty much all of these steps, with TDD and CI:
-
-* [TDD](https://en.wikipedia.org/wiki/Test-driven_development)
-* [CI](https://en.wikipedia.org/wiki/Continuous_integration)
+Many front-end developers seem to have little exposure to [TDD](https://en.wikipedia.org/wiki/Test-driven_development) and [CI](https://en.wikipedia.org/wiki/Continuous_integration).
 
 # Get started
 
@@ -36,8 +21,9 @@ npm install
 
 There is an awesome project called [Travis CI](http://travis-ci.org/) which is
 a cloud-based CI, for open source projects. It is built for GitHub so you can
-make a project in github, and hook it up to Travis. Then, whenver you push,
-Travis CI will automatically run the tests and report back on any problems.
+make a project in GitHub, and hook it up to Travis. Then, whenver you push,
+or get a pull-request,  Travis CI will automatically run the tests and report
+back on any problems.
 
 This boilerplate repository is also hooked up to Travis ([view build history](http://travis-ci.org/#!/Krinkle/travis-ci-node-and-browser-qunit/builds)).
 
@@ -53,14 +39,11 @@ does not simulate a browser), it will also run in phantomjs (from the
 `before_script` hook in `.travis.yml`) which is a headless WebKit browser.
 
 Depending on the kind of project you have you may want to keep only one of these.
-For example, if your application uses HTML elements and such then you'll want
-to only keep the phantomjs test (and thus remove the `test/node-test.js` file
-and the `scripts.test` property in `package.json`). Likewise, if your app is
-written specifically for NodeJS (e.g. uses `require('fs')` and what not), then
-you'll want to delete `test/phantomjs-index.js` and remove these 3 lines from
-the `before_script` hook in the `.travis.yml` file:
-```
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - "phantomjs test/phantomjs-index.js"
-```
+
+If your application only runs in a browser:
+* Remove `test/node-test.js`
+* Remove ` && node test/node-index.js` from the `scripts.test` property in `package.json`
+
+If your app is written specifically for NodeJS (e.g. uses npm packages), then:
+* Remove `test/phantomjs-index.js`
+* Remove `phantomjs test/phantomjs-index.js` in `.travis.yml`
