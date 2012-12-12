@@ -17,12 +17,13 @@
 		"url": "git://github.com/JohnDoe/node-mylib.git"
 	},
 	"scripts": {
-			"test": "node test/node-index.js"
+			"test": "./node_modules/.bin/jshint . && node test/node-index.js"
 	},
 	"dependencies": {
 	},
 	"devDependencies": {
-		"qunit": "~0.5.9"
+		"qunit": "~0.5.9",
+		"jshint": "~0.9.1"
 	},
 	"licenses": [{
 		"type": "MIT",

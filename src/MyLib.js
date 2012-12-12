@@ -1,5 +1,5 @@
 (function (global) {
-	var original_MyLib = global.MyLib;
+	var originalMyLib = global.MyLib;
 
 	function MyLib(a, b) {
 		if (a !== undefined) {
@@ -45,7 +45,7 @@
 		 * </code>
 		 */
 		MyLib.noConflict = function () {
-			global.MyLib = original_MyLib;
+			global.MyLib = originalMyLib;
 			return MyLib;
 		};
 	}

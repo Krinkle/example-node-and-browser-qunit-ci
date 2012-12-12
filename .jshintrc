@@ -4,11 +4,16 @@
 		"QUnit"
 	],
 
+	"camelcase": true,
+	"curly": true,
 	"eqeqeq": true,
 	"immed": true,
 	"latedef": true,
 	"newcap": true,
+	"noarg": true,
+	"noempty": true,
 	"nonew": true,
+	"quotmark": "single",
 	"undef": true,
 	"unused": true,
 	"strict": false,
@@ -16,5 +21,6 @@
 
 	"node": true,
 
+	"onevar": true,
 	"white": true
 }

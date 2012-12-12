@@ -5,7 +5,6 @@ var fs = require('fs'),
 	page = require('webpage').create(),
 	file = fs.absolute((system.args.length > 1 && system.args[1]) || 'test/index.html');
 
-
 page.onConsoleMessage = function (msg) {
 	console.log(msg);
 	if (/^Tests completed in/.test(msg)) {
