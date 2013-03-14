@@ -22,8 +22,8 @@
 	"dependencies": {
 	},
 	"devDependencies": {
-		"qunit": "~0.5.9",
-		"jshint": "~0.9.1"
+		"qunit": "~0.5.15",
+		"jshint": "~1.1.0"
 	},
 	"licenses": [{
 		"type": "MIT",
