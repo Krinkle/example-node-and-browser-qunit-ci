@@ -4,7 +4,6 @@ node_js:
   - "0.8"
   - "0.6"
 before_script:
-  - "git submodule update --init"
   - "phantomjs test/phantomjs-index.js"
 #notifications:
 #  irc:
