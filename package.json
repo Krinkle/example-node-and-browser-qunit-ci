@@ -1,32 +1,33 @@
 {
-	"name": "Mylib",
-	"version": "0.0.1",
-	"description": "My First Library.",
-	"keywords": [
-		"library"
-	],
-	"homepage": "http://example.org/mylib",
-	"bugs": "https://github.com/JohnDoe/node-mylib/issues",
-	"author": {
-		"name": "John Doe",
-		"web": "https://github.com/JohnDoe"
-	},
-	"main": "./src/MyLib.js",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/JohnDoe/node-mylib.git"
-	},
-	"scripts": {
-			"test": "./node_modules/.bin/jshint . && node test/node-index.js"
-	},
-	"dependencies": {
-	},
-	"devDependencies": {
-		"qunit": "~0.5.15",
-		"jshint": "~1.1.0"
-	},
-	"licenses": [{
-		"type": "MIT",
-		"url": "http://mit-license.org/"
-	}]
+  "name": "Mylib",
+  "version": "0.0.2",
+  "description": "My First Library.",
+  "keywords": [
+    "library"
+  ],
+  "homepage": "http://example.org/mylib",
+  "bugs": "https://github.com/JohnDoe/node-mylib/issues",
+  "author": {
+    "name": "John Doe",
+    "web": "https://github.com/JohnDoe"
+  },
+  "main": "./src/MyLib.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JohnDoe/node-mylib.git"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/jshint . && node test/node-index.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "qunit": "~0.5.15",
+    "jshint": "~1.1.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://mit-license.org/"
+    }
+  ]
 }
