@@ -29,8 +29,6 @@
 
 	MyLib.prototype.b = 'b';
 
-
-	// Expose: Server or browser
 	if (typeof module !== 'undefined' && module.exports) {
 		module.exports = MyLib;
 	} else {

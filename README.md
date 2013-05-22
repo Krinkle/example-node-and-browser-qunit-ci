@@ -34,16 +34,17 @@ If you've got any problems, feel free to ask on Twitter or [create an issue](htt
 * [@Krinkle](https://github.com/Krinkle) ([Twitter](https://twitter.com/TimoTijhof))
 
 By default Travis-CI will execute the `npm test` command, which in this example
-repository runs `node test/node-index.js`. In addition to running it in node (which
-does not simulate a browser), it will also run in phantomjs (from the
-`before_script` hook in `.travis.yml`) which is a headless WebKit browser.
+repository runs `grunt test` and `node test/node-index.js`. The Gruntfile takes care
+of running JSHint and rungning the QUnit tests in a headless WebKit browser (PhantomJS).
+The node script runs the unit tests in node without a browser environment.
 
 Depending on the kind of project you have you may want to keep only one of these.
 
 If your application only runs in a browser:
 * Remove `test/node-test.js`
-* Remove ` && node test/node-index.js` from the `scripts.test` property in `package.json`
+* Delete ` && node test/node-index.js` from the `scripts.test` property in `package.json`
 
 If your app is written specifically for NodeJS (e.g. uses npm packages), then:
-* Remove `test/phantomjs-index.js`
-* Remove `phantomjs test/phantomjs-index.js` in `.travis.yml`
+* Remove `grunt-contrib-qunit` from the `devDependencies` property in `package.json`
+* Remove `grunt.loadNpmTasks('grunt-contrib-qunit');` from `Gruntfile.js`
+* Remove `qunit` from the `initConfig` call in `Gruntfile.js`
