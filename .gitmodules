@@ -1,3 +1,0 @@
-[submodule "libs/qunit-logging"]
-	path = libs/qunit-logging
-	url = git://github.com/Krinkle/qunit-logging

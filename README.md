@@ -41,10 +41,11 @@ The node script runs the unit tests in node without a browser environment.
 Depending on the kind of project you have you may want to keep only one of these.
 
 If your application only runs in a browser:
+* Remove ` && node test/node-index.js` from the `scripts.test` property in `package.json`
 * Remove `test/node-test.js`
-* Delete ` && node test/node-index.js` from the `scripts.test` property in `package.json`
+* Remove `grunt` (not `gruntjs`) from the `devDependencies` property in `package.json`
 
 If your app is written specifically for NodeJS (e.g. uses npm packages), then:
-* Remove `grunt-contrib-qunit` from the `devDependencies` property in `package.json`
-* Remove `grunt.loadNpmTasks('grunt-contrib-qunit');` from `Gruntfile.js`
 * Remove `qunit` from the `initConfig` call in `Gruntfile.js`
+* Remove `grunt.loadNpmTasks('grunt-contrib-qunit');` from `Gruntfile.js`
+* Remove `grunt-contrib-qunit` from the `devDependencies` property in `package.json`
