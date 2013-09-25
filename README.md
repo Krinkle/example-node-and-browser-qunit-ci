@@ -35,7 +35,7 @@ If you've got any problems, feel free to ask on Twitter or [create an issue](htt
 
 By default Travis-CI will execute the `npm test` command, which in this example
 repository runs `grunt test` and `node test/node-index.js`. The Gruntfile takes care
-of running JSHint and rungning the QUnit tests in a headless WebKit browser (PhantomJS).
+of running JSHint and running the QUnit tests in a headless WebKit browser (PhantomJS).
 The node script runs the unit tests in node without a browser environment.
 
 Depending on the kind of project you have you may want to keep only one of these.
