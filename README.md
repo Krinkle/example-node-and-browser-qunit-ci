@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/Krinkle/travis-ci-node-and-browser-qunit.png)](http://travis-ci.org/Krinkle/travis-ci-node-and-browser-qunit)
+[![Build Status](https://travis-ci.org/Krinkle/travis-ci-node-and-browser-qunit.svg?branch=master)](https://travis-ci.org/Krinkle/travis-ci-node-and-browser-qunit)
 
 # Run QUnit tests in NodeJS + WebKit using Travis CI!
 
