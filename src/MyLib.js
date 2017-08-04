@@ -2,12 +2,8 @@
 	var originalMyLib = global.MyLib;
 
 	function MyLib(a, b) {
-		if (a !== undefined) {
-			this.a = a;
-		}
-		if (b !== undefined) {
-			this.b = b;
-		}
+		this.a = a;
+		this.b = b;
 	}
 
 	/* Static members */

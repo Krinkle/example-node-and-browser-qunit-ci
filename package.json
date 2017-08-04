@@ -1,36 +1,20 @@
 {
-  "name": "mylib",
-  "version": "0.0.3",
-  "description": "My First Library.",
-  "keywords": [
-    "library"
-  ],
-  "homepage": "http://example.org/mylib",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/JohnDoe/node-mylib.git"
-  },
-  "bugs": "https://github.com/JohnDoe/node-mylib/issues",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://mit-license.org/"
-    }
-  ],
-  "author": {
-    "name": "John Doe",
-    "web": "https://github.com/JohnDoe"
-  },
-  "main": "./src/MyLib.js",
+  "private": true,
   "scripts": {
-    "test": "grunt test && node test/node-index.js"
+    "test": "eslint . && qunit test/node-index.js && karma start",
+    "karma-debug": "karma start --no-single-run --browsers Chrome --logLevel DEBUG"
   },
+  "eslintIgnore": [
+    "/coverage"
+  ],
   "dependencies": {},
   "devDependencies": {
-    "qunit": "~0.5.15",
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.4.3",
-    "grunt-contrib-qunit": "~0.2.1",
-    "qunitjs": "~1.11.0"
+    "eslint": "4.3.0",
+    "karma": "1.7.0",
+    "karma-chrome-launcher": "2.2.0",
+    "karma-cli": "^1.0.1",
+    "karma-coverage": "1.1.1",
+    "karma-qunit": "1.2.1",
+    "qunitjs": "2.4.0"
   }
 }
