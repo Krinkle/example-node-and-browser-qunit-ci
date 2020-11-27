@@ -1,2 +1,3 @@
+/* eslint-env node */
+
 global.MyLib = require('../src/MyLib.js');
-require('./MyLib.test.js');

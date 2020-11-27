@@ -1,31 +1,28 @@
 /* eslint-env node */
+
 module.exports = function (config) {
-	config.set({
-		// To debug, run `npm run karma-debug` and press the "Debug" button in the browser window
-		browsers: [ 'ChromeHeadless' ],
-		frameworks: [ 'qunit' ],
-		files: [
-			'src/MyLib.js',
-			'test/MyLib.test.js'
-		],
-		autoWatch: false,
-		singleRun: true,
-		preprocessors: {
-			'src/*.js': [ 'coverage' ]
-		},
-		reporters: [ 'dots', 'coverage' ],
-		coverageReporter: {
-			reporters: [
-				{ type: 'text-summary' },
-				{ type: 'html', dir:'coverage/' },
-				{ type: 'lcovonly', dir: 'coverage/' },
-			],
-			check: { global: {
-				functions: 90,
-				statements: 50,
-				branches: 50,
-				lines: 50
-			} }
-		}
-	});
+  config.set({
+    browsers: ['FirefoxHeadless'],
+    frameworks: ['qunit'],
+    files: [
+      'src/MyLib.js',
+      'test/*.test.js'
+    ],
+    autoWatch: false,
+    singleRun: true,
+    preprocessors: {
+      'src/*.js': ['coverage']
+    },
+    reporters: ['dots', 'coverage'],
+    coverageReporter: {
+      reporters: [
+        { type: 'lcov', dir: '.nyc_output/' },
+        // Karma uses subdirs by default to account for multiple browsers.
+        // For the JSON file, it's important we disable 'subdir' so that
+        // the 'nyc report' command can pick this up when combining code
+        // coverage with the Node.js test run.
+        { type: 'json', dir: '.nyc_output/', subdir: '.' }
+      ]
+    }
+  });
 };

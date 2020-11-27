@@ -1,20 +1,31 @@
 {
   "private": true,
   "scripts": {
-    "test": "eslint . && qunit test/node-index.js && karma start",
-    "karma-debug": "karma start --no-single-run --browsers Chrome --logLevel DEBUG"
+    "lint": "semistandard",
+    "test-node": "qunit --require ./test/setup test/",
+    "test-node-cover": "nyc qunit --require ./test/setup test/",
+    "test-node-watch": "qunit --watch --require ./test/setup test/",
+    "test-browser": "karma start",
+    "test-browser-watch": "karma start --auto-watch --no-single-mode",
+    "test": "npm run lint && npm run test-node && npm run test-browser",
+    "cover": "npm run test-node-cover && npm run test-browser && nyc report",
+    "coveralls": "npm run cover && cat coverage/lcov.info | coveralls"
   },
-  "eslintIgnore": [
-    "/coverage"
-  ],
   "dependencies": {},
   "devDependencies": {
-    "eslint": "4.3.0",
-    "karma": "1.7.0",
-    "karma-chrome-launcher": "2.2.0",
-    "karma-cli": "^1.0.1",
-    "karma-coverage": "1.1.1",
-    "karma-qunit": "1.2.1",
-    "qunitjs": "2.4.0"
+    "coveralls": "^3.1.0",
+    "karma": "^5.2.3",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-coverage": "^2.0.3",
+    "karma-firefox-launcher": "^2.1.0",
+    "karma-qunit": "^4.1.1",
+    "nyc": "^15.1.0",
+    "qunit": "^2.12.0",
+    "semistandard": "^14.0.0"
+  },
+  "nyc": {
+    "temp-dir": ".nyc_output/",
+    "report-dir": "coverage/",
+    "reporter": ["text", "lcov"]
   }
 }
