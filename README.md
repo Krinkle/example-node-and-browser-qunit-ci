@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/Krinkle/travis-ci-node-and-browser-qunit.svg?branch=master)](https://travis-ci.com/github/Krinkle/travis-ci-node-and-browser-qunit) [![Coverage Status](https://coveralls.io/repos/github/Krinkle/travis-ci-node-and-browser-qunit/badge.svg?branch=master)](https://coveralls.io/github/Krinkle/travis-ci-node-and-browser-qunit?branch=master)
+[![Build Status](https://travis-ci.com/Krinkle/travis-ci-node-and-browser-qunit.svg?branch=master)](https://travis-ci.com/github/Krinkle/travis-ci-node-and-browser-qunit) [![Coverage Status](https://coveralls.io/repos/github/Krinkle/travis-ci-node-and-browser-qunit/badge.svg?branch=master)](https://coveralls.io/github/Krinkle/travis-ci-node-and-browser-qunit?branch=master) [![Tested with QUnit](https://img.shields.io/badge/tested_with-qunit-9c3493.svg)](https://qunitjs.com/)
 
 # Run QUnit on the web and in Node.js!
 
