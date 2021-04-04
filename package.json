@@ -15,6 +15,7 @@
   "devDependencies": {
     "coveralls": "^3.1.0",
     "karma": "^5.2.3",
+    "karma-chrome-launcher": "^3.1.0",
     "karma-coverage": "^2.0.3",
     "karma-firefox-launcher": "^2.1.0",
     "karma-qunit": "^4.1.1",
@@ -25,6 +26,9 @@
   "nyc": {
     "temp-dir": ".nyc_output/",
     "report-dir": "coverage/",
-    "reporter": ["text", "lcov"]
+    "reporter": [
+      "text",
+      "lcov"
+    ]
   }
 }
