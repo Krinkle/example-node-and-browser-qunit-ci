@@ -13,16 +13,20 @@ jobs:
           - 10.x
           - 12.x
           - 14.x
+          - 16.x
+          - 18.x
 
     # Packages 'firefox' and 'chromium' are pre-installed.
     #
-    # https://github.com/actions/virtual-environments/blob/ubuntu20/20210302.0/images/linux/Ubuntu2004-README.md
-    runs-on: ubuntu-20.04
+    # https://github.com/actions/runner-images/blob/ubuntu22/20230402.1/images/linux/Ubuntu2204-Readme.md
+    runs-on: ubuntu-22.04
     name: Node.js ${{ matrix.node }}
     steps:
-      - uses: actions/checkout@v2
+      # Clone the repo and checkout the commit for which the workflow was triggered
 
-      - uses: actions/cache@v2
+      - uses: actions/checkout@v3
+
+      - uses: actions/cache@v3
         if: ${{ runner.os != 'Windows' }}
         with:
           path: |
@@ -30,7 +34,7 @@ jobs:
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
 
       - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
 

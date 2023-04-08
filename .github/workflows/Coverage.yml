@@ -2,28 +2,29 @@ name: Coverage
 on:
   - push
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
   coveralls:
-    # Packages 'firefox' and 'chromium' are pre-installed.
-    #
-    # https://github.com/actions/virtual-environments/blob/ubuntu20/20210302.0/images/linux/Ubuntu2004-README.md
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
-      # Clone the repo and checkout the commit for which the workflow was triggered
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Install Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 16.x
 
-      - name: Install dependencies
+      - name: Install
         run: npm ci
 
-      - name: Coveralls
-        run: npm run coveralls
+      - name: Tests
+        run: npm run cover
+
+      - name: Upload
         env:
           COVERALLS_REPO_TOKEN: "${{ secrets.COVERALLS_REPO_TOKEN }}"
           COVERALLS_GIT_BRANCH: "${{ github.ref }}"
+        run: |
+          wget https://github.com/php-coveralls/php-coveralls/releases/download/v2.5.3/php-coveralls.phar
+          chmod +x php-coveralls.phar
+          ./php-coveralls.phar -v --coverage_clover coverage/clover.xml --json_path coverage/coveralls.json
