@@ -12,10 +12,10 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@wikimedia/karma-firefox-launcher": "^2.1.3",
     "karma": "^6.4.2",
     "karma-chrome-launcher": "^3.2.0",
     "karma-coverage": "^2.2.1",
+    "karma-firefox-launcher": "^2.1.3",
     "karma-qunit": "^4.2.0",
     "nyc": "^15.1.0",
     "qunit": "^2.20.0",

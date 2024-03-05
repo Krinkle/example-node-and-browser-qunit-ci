@@ -1,10 +1,6 @@
 /* eslint-env node */
 module.exports = function (config) {
   config.set({
-    plugins: [
-      '@wikimedia/karma-firefox-launcher',
-      'karma-*'
-    ],
     browsers: [
       'FirefoxHeadless'
       // 'ChromiumHeadless'
